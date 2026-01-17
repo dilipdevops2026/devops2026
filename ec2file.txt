@@ -1,0 +1,208 @@
+1st time created ec2 instance in the year of 2026 jan
+
+this is the steps we have followed to launch ec2
+
+EC2 connecting:
+1. Login ec2 instance with below details
+     Select free eligible tier images
+     Select new security group based on your location with new enabled SSH(22) and HTTP(80),HTTPS(443)
+    Create new keypair with pem and generate ppk using putty gen.
+    Puttygen→ load the pem file → save private key
+   Click on connect instance → ssh → copy → ssh url last point  highlighted text							                                                                                 ssh -i "aws_machine_mumbai.pem" ec2-user@ec2-43-204-108-201.ap-south-1.compute.amazonaws.com   
+
+Lets connect using putty.
+
+EC2 pem to ppk:-
+You’ve **already loaded the `.pem` key correctly** in **PuTTY Key Generator (PuTTYgen)** 👍
+Now you just need to **save it as a `.ppk` file**. Follow these exact steps.
+
+---
+
+## ✅ Convert **PEM → PPK** using PuTTYgen (Windows)
+
+![Image](https://www.puttygen.com/wp-content/uploads/2019/03/convert-pem-to-pek-1.jpg)
+
+![Image](https://www.ssh.com/hubfs/Imported_Blog_Media/puttygen_created_key_and_asking_for_passphase_to_save_private_key-2.png)
+
+![Image](https://www.ionos.com/digitalguide/fileadmin/_processed_/1/5/csm_connect-to-server-with-private-key_416d1bb484.webp)
+
+### **Step 1: Open PuTTYgen**
+
+* Run **PuTTY Key Generator**
+* Click **Load**
+* Select your `.pem` file
+  *(If you don’t see it, change file type to **All Files (*.*)**)*
+
+✔️ You already did this — your screen shows **“imported-openssh-key”**
+
+---
+
+### **Step 2: (Optional but Recommended) Set a Passphrase**
+
+* Enter a **Key passphrase**
+* Confirm the passphrase
+
+> This protects your `.ppk` file if someone copies it
+
+---
+
+### **Step 3: Save as `.ppk`**
+
+* Click **Save private key**
+* Click **Yes** if warned about no passphrase
+* Save the file as:
+
+  ```
+  my-key.ppk
+  ```
+
+🎉 **That’s it! Your `.ppk` file is ready**
+
+---
+
+## 🔐 Where Each Key Is Used
+
+| Key Type | Used For                  |
+| -------- | ------------------------- |
+| `.pem`   | Linux / OpenSSH / AWS CLI |
+| `.ppk`   | PuTTY / WinSCP (Windows)  |
+
+---
+
+## 🧪 Test the `.ppk` in PuTTY
+
+1. Open **PuTTY**
+2. Go to **Connection → SSH → Auth**
+3. Browse and select your `.ppk`
+4. Enter hostname & username
+5. Click **Open**
+
+---
+
+## ❗ Common Mistakes to Avoid
+
+* ❌ Clicking **Save public key** (wrong one)
+* ❌ Renaming `.pem` to `.ppk` manually
+* ❌ Forgetting username (e.g., `ec2-user`, `ubuntu`)
+
+---
+
+If you want:
+
+* PEM ↔ PPK **using command line**
+* **AWS EC2** login example
+* **WinSCP** setup
+* **Linux SSH** verification
+
+Just tell me 👍
+
+--------------------------------------------------------------------------------------------------------------------------
+EC2 folders creations in root dir:-
+
+[root@ip-172-31-14-196 bin]# pwd
+/usr/bin
+[root@ip-172-31-14-196 bin]# cd ../../
+[root@ip-172-31-14-196 /]# cd /root/
+[root@ip-172-31-14-196 ~]# ll
+total 0
+drwxr-xr-x. 3 root root 27 Jan 17 03:46 gitworks
+[root@ip-172-31-14-196 ~]# mkdir Dockerworks
+[root@ip-172-31-14-196 ~]# ll
+total 0
+drwxr-xr-x. 2 root root  6 Jan 17 03:49 Dockerworks
+drwxr-xr-x. 3 root root 27 Jan 17 03:46 gitworks
+[root@ip-172-31-14-196 ~]# git --version
+git version 2.50.1
+[root@ip-172-31-14-196 ~]# Docker --version
+bash: Docker: command not found
+[root@ip-172-31-14-196 ~]# docker --version
+Docker version 25.0.14, build 0bab007
+[root@ip-172-31-14-196 ~]# ll
+total 0
+drwxr-xr-x. 2 root root  6 Jan 17 03:49 Dockerworks
+drwxr-xr-x. 3 root root 27 Jan 17 03:46 gitworks
+[root@ip-172-31-14-196 ~]# cd gitworks/
+[root@ip-172-31-14-196 gitworks]# ll
+total 0
+drwxr-xr-x. 2 root root 6 Jan 17 03:46 gitdevops2026
+[root@ip-172-31-14-196 gitworks]# cd gitdevops2026/
+[root@ip-172-31-14-196 gitdevops2026]# ll
+total 0
+[root@ip-172-31-14-196 gitdevops2026]# pwd
+/root/gitworks/gitdevops2026
+[root@ip-172-31-14-196 gitdevops2026]# git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+hint:
+hint: Disable this message with "git config set advice.defaultBranchName false"
+Initialized empty Git repository in /root/gitworks/gitdevops2026/.git/
+[root@ip-172-31-14-196 gitdevops2026]# git config --global user.name "nagaldilipkumar@gmail.com"
+[root@ip-172-31-14-196 gitdevops2026]# git config --global user.email "nagaldilipkumar@gmail.com"
+[root@ip-172-31-14-196 gitdevops2026]# git config --global user.name "dilipaws2026"
+[root@ip-172-31-14-196 gitdevops2026]# git config --list
+user.name=dilipaws2026
+user.email=nagaldilipkumar@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+[root@ip-172-31-14-196 gitdevops2026]# git remote add origin https://github.com/dilipdevops2026/devops2026.git
+[root@ip-172-31-14-196 gitdevops2026]# git config --list
+user.name=dilipaws2026
+user.email=nagaldilipkumar@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/dilipdevops2026/devops2026.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+[root@ip-172-31-14-196 gitdevops2026]# git branch
+[root@ip-172-31-14-196 gitdevops2026]# git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+[root@ip-172-31-14-196 gitdevops2026]# git branch -m master main
+[root@ip-172-31-14-196 gitdevops2026]# git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+[root@ip-172-31-14-196 gitdevops2026]# git pull origin main
+remote: Enumerating objects: 21, done.
+remote: Counting objects: 100% (21/21), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 21 (delta 6), reused 14 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (21/21), 2.49 KiB | 636.00 KiB/s, done.
+From https://github.com/dilipdevops2026/devops2026
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+[root@ip-172-31-14-196 gitdevops2026]# ll
+total 12
+-rw-r--r--. 1 root root  96 Jan 17 03:56 anotherfile_160126.xml
+-rw-r--r--. 1 root root 161 Jan 17 03:56 myfile_160126.txt
+-rw-r--r--. 1 root root  74 Jan 17 03:56 testing_file_160126
+[root@ip-172-31-14-196 gitdevops2026]# git log --oneline
+98ac40f (HEAD -> main, origin/main) success
+7db4a86 testig without  '-U'
+992c137 new xml file
+205cf0b Update myfile_160126.txt
+9705fbd 2nd commit from laptop
+b762175 just dot added
+a5bfabd 1st commit from laptop linux
+[root@ip-172-31-14-196 gitdevops2026]#
+
+
+
+------------------------------------------------------------------------------------------------------
+
